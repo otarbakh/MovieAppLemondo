@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId = "com.otarbakh.movieapplemondo"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -32,18 +32,22 @@ android {
             )
         }
     }
+    buildFeatures {
+        buildConfig = true
+    }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.4.4"
+
     }
     packaging {
         resources {
@@ -146,7 +150,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.4.0")
 
 // Rating Bar
-    implementation("com.github.a914-gowtham:compose-ratingbar:1.3.4")
+//    implementation("com.github.a914-gowtham:compose-ratingbar:1.3.4")
 
 // Room
     val roomVersion = "2.5.2"
