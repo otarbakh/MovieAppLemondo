@@ -24,7 +24,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.otarbakh.movieapplemondo.R
 import com.otarbakh.movieapplemondo.domain.MovieDomain
@@ -34,8 +33,6 @@ import com.otarbakh.movieapplemondo.presentation.composables.CustomNoInternetCon
 import com.otarbakh.movieapplemondo.presentation.composables.HorizontalMovieItem
 import com.otarbakh.movieapplemondo.presentation.composables.LoadingScreen
 import com.otarbakh.movieapplemondo.usecases.PopularMoviesResult
-import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -56,10 +53,10 @@ fun MoviesScreen(
                 .height(70.dp)
                 .clip(RoundedCornerShape(40.dp)),
             query = searchQuery,
-            onQueryChange = {  queryChanged ->
+            onQueryChange = { queryChanged ->
                 searchQuery = queryChanged // update the query state
                 onQueryChange(queryChanged) // call the callback
-                            },
+            },
             onSearch = { query ->
                 // Handle search ImeAction.Search here
             },
@@ -100,25 +97,29 @@ fun HeaderMoviesScreen(
 
     var popularMoviesList by rememberSaveable { mutableStateOf(listOf<MovieDomain>()) }
 
-    LaunchedEffect(key1 = popularMoviesState){
-        when(popularMoviesState){
-            PopularMoviesResult.Empty ->{
+    LaunchedEffect(key1 = popularMoviesState) {
+        when (popularMoviesState) {
+            PopularMoviesResult.Empty -> {
                 isLoading = false
                 isErrorGeneral = false
                 isInternetError = false
                 isEmpty = true
             }
+
             is PopularMoviesResult.ErrorGeneral -> {
                 isLoading = false
                 isErrorGeneral = true
             }
+
             PopularMoviesResult.InternetError -> {
                 isErrorGeneral = false
             }
+
             is PopularMoviesResult.Loading -> {
                 isLoading = popularMoviesState.isLoading
                 isErrorGeneral = false
             }
+
             is PopularMoviesResult.Success -> {
                 isLoading = false
                 isErrorGeneral = false
@@ -134,22 +135,29 @@ fun HeaderMoviesScreen(
         isLoading -> {
             LoadingScreen()
         }
+
         isErrorGeneral -> {
             CustomErrorScreenSomethingHappens(
                 modifier = Modifier.padding(bottom = 180.dp),
             )
         }
+
         isInternetError -> {
             CustomNoInternetConnectionScreen(
                 modifier = Modifier.padding(bottom = 180.dp),
             )
         }
+
         isEmpty -> {
             CustomEmptySearchScreen(
                 Modifier.padding(bottom = 180.dp),
-                description = stringResource(id = R.string.empty_screen_description_no_results, searchQuery)
+                description = stringResource(
+                    id = R.string.empty_screen_description_no_results,
+                    searchQuery
+                )
             )
         }
+
         isSuccess -> {
             LazyColumn(
                 content = {
@@ -160,50 +168,14 @@ fun HeaderMoviesScreen(
                             description = it.overview,
                             imageUrl = it.poster_path,
                             rating = it.vote_average,
-                            realeaseDate = it.release_date?: "",
+                            realeaseDate = it.release_date ?: "",
                             onClick = { onClickNavigateToDetails(it.id) })
 
-                        if(it == popularMoviesList.last()) {
+                        if (it == popularMoviesList.last()) {
                             Spacer(modifier = Modifier.height(80.dp))
                         }
                     }
                 })
         }
     }
-
-
-}
-
-
-@Preview
-@Composable
-fun MoviesScreenPrev() {
-    val moviesTests = listOf<MovieDomain>(
-        MovieDomain(
-            id = 1,
-            title = "Ant-Man y la Avispa: Quantumanía",
-            overview = "La pareja de superhéroes Scott Lang y Hope van Dyne regresa para continuar sus aventuras como Ant-Man y la Avispa. Los dos, junto a los padres de Hope, Hank Pym y Janet van Dyne y la hija de Scott, Cassie Lang, se dedican a explorar el Mundo Cuántico, interactuando con nuevas y extrañas criaturas y embarcándose en una aventura que les llevará más allá de los límites de lo que creían posible.",
-            poster_path = "https://image.tmdb.org/t/p/original/lKHy0ntGPdQeFwvNq8gK1D0anEr.jpg",
-            vote_average = 6.5f,
-            release_date = "2022-02-17"
-        ),
-        MovieDomain(
-            id = 2,
-            title = "Sisu",
-            overview = "En lo profundo de la naturaleza salvaje de Laponia, Aatami Korpi está buscando oro, pero después de tropezar con una patrulla nazi, comienza una persecución impresionante y hambrienta de oro a través de la naturaleza salvaje de Laponia destruida y minada.",
-            poster_path = "https://image.tmdb.org/t/p/original/t9VXZkgcxpIwfPUKAWOOONs0vHv.jpg",
-            vote_average = 7.4f,
-            release_date = "2021-10-01"
-        ),
-    )
-
-    MoviesScreen(
-        moviesList = PopularMoviesResult.Success(moviesTests),
-        onClickNavigateToDetails = {
-            Timber.d("onClickNavigateToDetails: $it")
-        },
-        onQueryChange = {
-            Timber.d("onQueryChange: $it")
-        }
-    )
 }

@@ -7,7 +7,7 @@ import java.util.Locale
 fun convertDateToFormattedString(releaseDate: String): String {
     return try {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val outputFormat = SimpleDateFormat("EEEE dd 'de' MMMM 'del' yyyy", Locale("eng", "EN"))
+        val outputFormat = SimpleDateFormat("EEEE dd 'de' MMMM 'del' yyyy", Locale("en", "EN"))
 
         val date = inputFormat.parse(releaseDate)
         val calendar = Calendar.getInstance()
@@ -16,7 +16,7 @@ fun convertDateToFormattedString(releaseDate: String): String {
         return outputFormat.format(calendar.time).replaceFirstChar {
             it.uppercase()
         }
-    }catch (e: Exception){
+    } catch (e: Exception) {
         releaseDate
     }
 

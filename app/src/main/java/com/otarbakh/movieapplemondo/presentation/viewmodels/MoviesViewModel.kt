@@ -39,7 +39,7 @@ class MoviesViewModel @Inject constructor(
     fun getPopularMovies() = viewModelScope.launch(Dispatchers.IO){
         getPopularMoviesUseCase.invoke(
             api_key = BuildConfig.API_KEY,
-            language = "es-ES",
+            language = "en-EN",
             page = 1
         ).onStart {
             _moviesStateResult.value = PopularMoviesResult.Loading(true)
@@ -70,7 +70,7 @@ class MoviesViewModel @Inject constructor(
     private fun searchMovie(query:String) = viewModelScope.launch(Dispatchers.IO){
         searchMovieUseCase.invoke(
             api_key = BuildConfig.API_KEY,
-            language = "es-ES",
+            language = "en-EN",
             query = query,
             //page = 1
         ).onStart {

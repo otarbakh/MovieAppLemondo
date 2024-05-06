@@ -4,6 +4,7 @@ package com.otarbakh.movieapplemondo.domain
 import com.otarbakh.movieapplemondo.BuildConfig
 
 
+
 data class PopularsMovieResponse(
     val page: Int,
     val results: List<MovieEntity>,

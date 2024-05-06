@@ -1,8 +1,8 @@
 package com.otarbakh.movieapplemondo.usecases
 
+import com.otarbakh.movieapplemondo.data.model.toDomainModel
 import com.otarbakh.movieapplemondo.data.repository.IMoviesRepository
-import com.otarbakh.movieapplemondo.domain.MovieDetailDomain
-import com.otarbakh.movieapplemondo.domain.toDomainModel
+import com.otarbakh.movieapplemondo.domain.model.MovieDetailDomain
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 

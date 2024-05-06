@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.otarbakh.movieapplemondo.BuildConfig
-import com.otarbakh.movieapplemondo.domain.MovieDetailDomain
+import com.otarbakh.movieapplemondo.domain.model.MovieDetailDomain
 import com.otarbakh.movieapplemondo.domain.local.toFavoriteMoviesEntity
 import com.otarbakh.movieapplemondo.usecases.DeleteFavoriteMovieUseCase
 import com.otarbakh.movieapplemondo.usecases.GetDetailsMovieResult
@@ -83,11 +83,11 @@ class DetailsMovieViewModel @Inject constructor(
         markFavoriteMovie(movie)
     }
 
-    private fun markFavoriteMovie(movie:MovieDetailDomain) = viewModelScope.launch(Dispatchers.IO) {
+    private fun markFavoriteMovie(movie: MovieDetailDomain) = viewModelScope.launch(Dispatchers.IO) {
         insertFavoriteMovieUseCase.invoke(movie.toFavoriteMoviesEntity())
     }
 
-    private fun unMarkFavoriteMovie(movie:MovieDetailDomain) = viewModelScope.launch(Dispatchers.IO) {
+    private fun unMarkFavoriteMovie(movie: MovieDetailDomain) = viewModelScope.launch(Dispatchers.IO) {
         val favoriteMovie = (movie.id?:0)
         deleteFavoriteMovieUseCase.invoke(favoriteMovie)
 

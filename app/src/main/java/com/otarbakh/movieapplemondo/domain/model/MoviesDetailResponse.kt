@@ -1,6 +1,4 @@
-package com.otarbakh.movieapplemondo.domain
-
-import com.otarbakh.movieapplemondo.BuildConfig
+package com.otarbakh.movieapplemondo.domain.model
 
 
 data class MoviesDetailResponse(
@@ -122,84 +120,29 @@ data class SpokenLanguageDomain(
     val name: String? = null,
 )
 
-//Mapper to Domain
 
-fun MoviesDetailResponse.toDomainModel(): MovieDetailDomain {
-    return MovieDetailDomain(
-        adult = this.adult,
-        backdrop_path = BuildConfig.IMAGE_URL + this.backdrop_path,
-        belongs_to_collection = this.belongs_to_collection?.toDomainBelongsCollection(),
-        budget = this?.budget,
-        genres = this.genres?.toDomainGenre(),
-        homepage = this.homepage,
-        id = this.id,
-        imdb_id = this.imdb_id,
-        original_language = this.original_language,
-        original_title = this.original_title,
-        overview = this.overview,
-        popularity = this.popularity,
-        poster_path = BuildConfig.IMAGE_URL + this.poster_path,
-        production_companies = this.production_companies?.toDomainProductionCompany(),
-        production_countries = this.production_countries?.toDomainProductionCountry(),
-        release_date = this.release_date,
-        revenue = this.revenue,
-        runtime = this.runtime,
-        runtimeWithMinutes = "${this.runtime} minutos",
-        spoken_languages = this.spoken_languages?.toDomainSpokenLan(),
-        status = this.status,
-        tagline = this.tagline,
-        title = this.title,
-        video = this.video,
-        vote_average = this.vote_average,
-        vote_count = this.vote_count
-    )
-}
 
-fun BelongsToCollection.toDomainBelongsCollection(): BelongsToCollectionDomain {
-    return BelongsToCollectionDomain(
-        backdrop_path = this.backdrop_path,
-        id = this.id,
-        name = this.name,
-        poster_path = this.poster_path
-    )
-}
 
-fun List<Genre>.toDomainGenre(): List<GenreDomain> {
-    return this.map {
-        GenreDomain(
-            id = it.id,
-            name = it.name
-        )
-    }
-}
 
-fun List<ProductionCompany>.toDomainProductionCompany(): List<ProductionCompanyDomain> {
-    return this.map {
-        ProductionCompanyDomain(
-            id = it.id,
-            logo_path = it.logo_path,
-            name = it.name,
-            origin_country = it.origin_country
-        )
-    }
-}
 
-fun List<ProductionCountry>.toDomainProductionCountry(): List<ProductionCountryDomain> {
-    return this.map {
-        ProductionCountryDomain(
-            iso_3166_1 = it.iso_3166_1,
-            name = it.name
-        )
-    }
-}
 
-fun List<SpokenLanguage>.toDomainSpokenLan(): List<SpokenLanguageDomain> {
-    return this.map {
-        SpokenLanguageDomain(
-            english_name = it.english_name,
-            iso_639_1 = it.iso_639_1,
-            name = it.name
-        )
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

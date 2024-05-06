@@ -37,7 +37,6 @@ fun VerticalMovieItem(
         colors = CardDefaults.cardColors(
             containerColor = Color.Transparent
         )
-        //elevation = 4.dp
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
             Card(

@@ -10,7 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.otarbakh.movieapplemondo.domain.MovieDetailDomain
+import com.otarbakh.movieapplemondo.domain.model.MovieDetailDomain
 import com.otarbakh.movieapplemondo.presentation.composables.CustomErrorScreenSomethingHappens
 import com.otarbakh.movieapplemondo.presentation.composables.CustomNoInternetConnectionScreen
 import com.otarbakh.movieapplemondo.presentation.composables.LoadingScreen

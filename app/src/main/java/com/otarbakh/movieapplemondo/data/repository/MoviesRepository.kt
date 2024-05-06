@@ -3,11 +3,12 @@ package com.otarbakh.movieapplemondo.data.repository
 
 import com.otarbakh.movieapplemondo.data.local.IFavoriteMoviesLocalDataSource
 import com.otarbakh.movieapplemondo.data.remote.IMoviesRemoteDataSource
-import com.otarbakh.movieapplemondo.domain.MoviesDetailResponse
+import com.otarbakh.movieapplemondo.domain.model.MoviesDetailResponse
 import com.otarbakh.movieapplemondo.domain.PopularsMovieResponse
 import com.otarbakh.movieapplemondo.domain.local.FavoriteMoviesEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
+
 
 interface IMoviesRepository {
     suspend fun getPopularMovies(

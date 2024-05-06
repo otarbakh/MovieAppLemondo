@@ -24,5 +24,5 @@ object AppDatabaseModule {
         AppDatabase::class.java,
         "MovieAppLemondo"
     ).fallbackToDestructiveMigration().build()
-//    gadasaketebelia
+
 }

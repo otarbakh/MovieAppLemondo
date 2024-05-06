@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.otarbakh.movieapplemondo.R
-import com.otarbakh.movieapplemondo.domain.GenreDomain
+import com.otarbakh.movieapplemondo.domain.model.GenreDomain
 import com.otarbakh.movieapplemondo.ui.theme.Green40
 
 @Composable
@@ -70,9 +70,8 @@ fun DetailsMovieContent(
                 contentDescription = null,
                 tint = Color.Black,
             )
-            //title
             Text(
-                text = "Detalles",
+                text = "Details",
                 color = Color.Black,
                 fontSize = 20.sp,
                 fontWeight = FontWeight(600),
@@ -324,7 +323,7 @@ fun DetailsMovieContentPrev() {
         genres = listOf(GenreDomain(name = "Action")),
         releaseDate = "2021-12-15",
         voteAverage = "9.5",
-        runtime = "118 minutos",
+        runtime = "118 Minutes",
         onClickBack = {},
         onClickFavorite = {},
         isFavoriteMovie = false

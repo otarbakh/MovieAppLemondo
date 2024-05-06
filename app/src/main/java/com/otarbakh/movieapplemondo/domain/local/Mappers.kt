@@ -1,7 +1,7 @@
 package com.otarbakh.movieapplemondo.domain.local
 
 
-import com.otarbakh.movieapplemondo.domain.MovieDetailDomain
+import com.otarbakh.movieapplemondo.domain.model.MovieDetailDomain
 
 
 fun MovieDetailDomain.toFavoriteMoviesEntity(): FavoriteMoviesEntity {

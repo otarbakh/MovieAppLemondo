@@ -93,8 +93,8 @@ fun EmptyMoviesScreenPrev() {
     CustomEmptyStateScreen(
 
         image = R.drawable.background_empty_state,
-        title = "No se encontraron resultados",
-        description = stringResource(id = R.string.empty_screen_description_no_results, "crepusculo")
+        title = "No results found",
+        description = stringResource(id = R.string.empty_screen_description_no_results, "twilight")
     )
 }
 
@@ -103,8 +103,8 @@ fun EmptyMoviesScreenPrev() {
 fun NoInternetConnectionPrev() {
     CustomEmptyStateScreen(
         image = R.drawable.background_no_internet_connection,
-        title = "Sin conexión a internet",
-        description = "Revisa tu conexión a internet e intenta nuevamente"
+        title = "No internet connection",
+        description = "Check your internet connection and try again"
     )
 }
 
@@ -113,7 +113,7 @@ fun NoInternetConnectionPrev() {
 fun FavoriteEmptyPrev() {
     CustomEmptyStateScreen(
         image = R.drawable.background_box_empty_state,
-        title = "No tienes favoritos",
-        description = "Agrega películas a tus favoritos para verlas aquí"
+        title = "You don't have favorites",
+        description = "Add movies to your favorites to watch here"
     )
 }
