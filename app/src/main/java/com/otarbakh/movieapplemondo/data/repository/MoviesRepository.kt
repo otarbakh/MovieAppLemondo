@@ -1,7 +1,7 @@
 package com.otarbakh.movieapplemondo.data.repository
 
 
-import com.otarbakh.movieapplemondo.data.local.IFavoriteMoviesLocalDataSource
+import com.otarbakh.movieapplemondo.data.local.FavoriteMoviesLocalDataSource
 import com.otarbakh.movieapplemondo.data.remote.IMoviesRemoteDataSource
 import com.otarbakh.movieapplemondo.domain.model.MoviesDetailResponse
 import com.otarbakh.movieapplemondo.domain.PopularsMovieResponse
@@ -40,7 +40,7 @@ interface IMoviesRepository {
 
 class MoviesRepository @Inject constructor(
     private val remote: IMoviesRemoteDataSource,
-    private val local: IFavoriteMoviesLocalDataSource
+    private val local: FavoriteMoviesLocalDataSource
 ) : IMoviesRepository {
 
        override suspend fun getPopularMovies(

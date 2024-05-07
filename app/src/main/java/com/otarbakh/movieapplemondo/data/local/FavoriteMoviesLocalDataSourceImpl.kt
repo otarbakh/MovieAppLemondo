@@ -5,16 +5,12 @@ import com.otarbakh.movieapplemondo.domain.local.FavoriteMoviesEntityDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-interface IFavoriteMoviesLocalDataSource {
-    fun getFavoriteMovies(): Flow<List<FavoriteMoviesEntity>>
-    fun getFavoriteMovieById(id: Int): Flow<FavoriteMoviesEntity>
-    suspend fun insertFavoriteMovie(favoriteMoviesEntity: FavoriteMoviesEntity)
-    suspend fun deleteFavoriteMovie(id: Int)
-}
 
-class FavoriteMoviesLocalDataSourceImpl @Inject constructor(
-    private val moviesDao: FavoriteMoviesEntityDao
-):IFavoriteMoviesLocalDataSource{
+
+class FavoriteMoviesLocalDataSourceImpl @Inject
+constructor(
+    val moviesDao:FavoriteMoviesEntityDao
+):FavoriteMoviesLocalDataSource{
     override fun getFavoriteMovies(): Flow<List<FavoriteMoviesEntity>> {
         return moviesDao.getAll()
     }

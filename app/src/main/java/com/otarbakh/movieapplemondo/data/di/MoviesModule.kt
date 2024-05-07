@@ -2,7 +2,7 @@ package com.otarbakh.movieapplemondo.data.di
 
 
 import com.otarbakh.movieapplemondo.data.local.FavoriteMoviesLocalDataSourceImpl
-import com.otarbakh.movieapplemondo.data.local.IFavoriteMoviesLocalDataSource
+import com.otarbakh.movieapplemondo.data.local.FavoriteMoviesLocalDataSource
 import com.otarbakh.movieapplemondo.data.remote.IMoviesRemoteDataSource
 import com.otarbakh.movieapplemondo.data.remote.IMoviesService
 import com.otarbakh.movieapplemondo.data.remote.MoviesRemoteDataSource
@@ -22,7 +22,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 abstract class MoviesModule {
 
-    //Remote
     @Singleton
     @Binds
     abstract fun provideMovieServices(
@@ -41,15 +40,11 @@ abstract class MoviesModule {
         moviesRepositoryImpl: MoviesRepository
     ): IMoviesRepository
 
-
-    //Local
-
     @Singleton
     @Binds
     abstract fun provideMoviesLocalDataSource(
         moviesLocalDataSourceImpl: FavoriteMoviesLocalDataSourceImpl
-    ): IFavoriteMoviesLocalDataSource
-
+    ): FavoriteMoviesLocalDataSource
 }
 
 
