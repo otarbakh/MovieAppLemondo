@@ -59,7 +59,6 @@ data class SpokenLanguage(
     val name: String
 )
 
-//Domain
 
 data class MovieDetailDomain(
     val adult: Boolean? = null,

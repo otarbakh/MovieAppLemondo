@@ -21,18 +21,18 @@ fun DetailsMovieScreen(
     navController: NavController,
     stateMovieDetail: GetDetailsMovieResult,
     onClickFavorite: (MovieDetailDomain) -> Unit,
-    isFavoriteMovie:Boolean,
+    isFavoriteMovie: Boolean,
 ) {
-    var isLoading by remember { mutableStateOf(false)}
-    var isError by remember { mutableStateOf(false)}
-    var isSuccess by remember { mutableStateOf(false)}
-    var isInternetError by remember { mutableStateOf(false)}
+    var isLoading by remember { mutableStateOf(false) }
+    var isError by remember { mutableStateOf(false) }
+    var isSuccess by remember { mutableStateOf(false) }
+    var isInternetError by remember { mutableStateOf(false) }
 
-    var item by remember { mutableStateOf(MovieDetailDomain())}
+    var item by remember { mutableStateOf(MovieDetailDomain()) }
 
 
-    LaunchedEffect(key1 = stateMovieDetail){
-        when(stateMovieDetail) {
+    LaunchedEffect(key1 = stateMovieDetail) {
+        when (stateMovieDetail) {
             is GetDetailsMovieResult.Success -> {
                 isLoading = false
                 isError = false
@@ -40,12 +40,14 @@ fun DetailsMovieScreen(
                 isSuccess = true
                 item = stateMovieDetail.data
             }
+
             is GetDetailsMovieResult.Error -> {
                 isLoading = false
                 isSuccess = false
                 isError = true
                 isInternetError = false
             }
+
             is GetDetailsMovieResult.Loading -> {
                 isError = false
                 isSuccess = false
@@ -63,30 +65,33 @@ fun DetailsMovieScreen(
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
-        when{
+        when {
             isLoading -> {
                 LoadingScreen()
             }
+
             isError -> {
                 CustomErrorScreenSomethingHappens()
             }
+
             isInternetError -> {
                 CustomNoInternetConnectionScreen()
             }
+
             isSuccess -> {
                 DetailsMovieContent(
                     onClickBack = {
                         navController.popBackStack()
                     },
                     onClickFavorite = { onClickFavorite(item) },
-                    title = item.title?: "",
-                    description = item.overview?: "",
-                    imageBackdrop = item.backdrop_path?: "",
-                    imagePoster = item.poster_path?: "",
-                    genres = item.genres?: listOf(),
-                    releaseDate = item.release_date?: "",
-                    voteAverage = item.vote_average?.toString()?: "",
-                    runtime = item.runtimeWithMinutes?: "",
+                    title = item.title ?: "",
+                    description = item.overview ?: "",
+                    imageBackdrop = item.backdrop_path ?: "",
+                    imagePoster = item.poster_path ?: "",
+                    genres = item.genres ?: listOf(),
+                    releaseDate = item.release_date ?: "",
+                    voteAverage = item.vote_average?.toString() ?: "",
+                    runtime = item.runtimeWithMinutes ?: "",
                     isFavoriteMovie = isFavoriteMovie
                 )
             }

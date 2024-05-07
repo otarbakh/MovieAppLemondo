@@ -6,11 +6,10 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 
-
 class FavoriteMoviesLocalDataSourceImpl @Inject
 constructor(
-    val moviesDao:FavoriteMoviesEntityDao
-):FavoriteMoviesLocalDataSource{
+    val moviesDao: FavoriteMoviesEntityDao
+) : FavoriteMoviesLocalDataSource {
     override fun getFavoriteMovies(): Flow<List<FavoriteMoviesEntity>> {
         return moviesDao.getAll()
     }

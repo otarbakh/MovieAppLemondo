@@ -54,9 +54,10 @@ fun VerticalMovieItem(
                 )
             }
 
-            Column(modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth(),
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxWidth(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = CenterHorizontally
             ) {
@@ -81,7 +82,7 @@ fun VerticalMovieItem(
 
 @Preview
 @Composable
-fun VerticalMovieItemPrev(){
+fun VerticalMovieItemPrev() {
     VerticalMovieItem(
         title = "Fast & Furious X",
         release = "2021-06-25",

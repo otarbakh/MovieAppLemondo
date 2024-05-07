@@ -1,8 +1,7 @@
 package com.otarbakh.movieapplemondo.domain
 
-
 import com.otarbakh.movieapplemondo.BuildConfig
-
+import com.otarbakh.movieapplemondo.common.Constants
 
 
 data class PopularsMovieResponse(
@@ -35,7 +34,7 @@ fun List<MovieEntity>.toDomainModel(): List<MovieDomain> {
     return map {
         MovieDomain(
             id = it.id,
-            poster_path = BuildConfig.IMAGE_URL + it.poster_path, // Here we are adding the base url to the poster_path
+            poster_path = Constants.IMAGE_URL + it.poster_path, // Here we are adding the base url to the poster_path
             overview = it.overview,
             title = it.title,
             vote_average = it.vote_average,

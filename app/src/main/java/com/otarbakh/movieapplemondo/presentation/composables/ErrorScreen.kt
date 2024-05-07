@@ -31,9 +31,9 @@ fun ErrorScreen() {
         ) {
             LottieAnimation(
                 composition = lottieLoading,
-                modifier = Modifier.
-                fillMaxWidth(1f),
-                iterations = LottieConstants.IterateForever)
+                modifier = Modifier.fillMaxWidth(1f),
+                iterations = LottieConstants.IterateForever
+            )
         }
     }
 }
@@ -47,7 +47,7 @@ fun ErrorScreenPrev() {
 @Composable
 fun CustomErrorScreenSomethingHappens(
     modifier: Modifier = Modifier,
-){
+) {
     CustomEmptyStateScreen(
         modifier = modifier,
         title = stringResource(id = R.string.empty_screen_title_error_something_went_wrong),
@@ -56,11 +56,11 @@ fun CustomErrorScreenSomethingHappens(
     )
 }
 
-//no internet
+
 @Composable
 fun CustomNoInternetConnectionScreen(
     modifier: Modifier = Modifier,
-){
+) {
     CustomEmptyStateScreen(
         modifier = modifier,
         title = stringResource(id = R.string.empty_screen_title_no_internet),
@@ -74,8 +74,11 @@ fun CustomNoInternetConnectionScreen(
 fun CustomEmptySearchScreen(
     modifier: Modifier = Modifier,
     title: String = stringResource(id = R.string.empty_screen_title_not_found_results),
-    description: String = stringResource(id = R.string.empty_screen_description_no_results, "search")
-){
+    description: String = stringResource(
+        id = R.string.empty_screen_description_no_results,
+        "search"
+    )
+) {
     CustomEmptyStateScreen(
         modifier = modifier,
         title = title,

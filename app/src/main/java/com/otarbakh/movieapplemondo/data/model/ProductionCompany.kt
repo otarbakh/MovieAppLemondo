@@ -9,6 +9,7 @@ data class ProductionCompany(
     val name: String,
     val origin_country: String
 )
+
 fun List<ProductionCompany>.toDomainProductionCompany(): List<ProductionCompanyDomain> {
     return this.map {
         ProductionCompanyDomain(

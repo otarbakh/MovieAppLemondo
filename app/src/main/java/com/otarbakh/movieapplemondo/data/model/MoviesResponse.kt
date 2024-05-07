@@ -1,6 +1,6 @@
 package com.otarbakh.movieapplemondo.data.model
 
-import com.otarbakh.movieapplemondo.BuildConfig
+import com.otarbakh.movieapplemondo.common.Constants
 import com.otarbakh.movieapplemondo.domain.model.MovieDetailDomain
 import com.otarbakh.movieapplemondo.domain.model.MoviesDetailResponse
 
@@ -36,7 +36,7 @@ data class MoviesResponse(
 fun MoviesDetailResponse.toDomainModel(): MovieDetailDomain {
     return MovieDetailDomain(
         adult = this.adult,
-        backdrop_path = BuildConfig.IMAGE_URL + this.backdrop_path,
+        backdrop_path = Constants.IMAGE_URL + this.backdrop_path,
         belongs_to_collection = this.belongs_to_collection?.toDomainBelongsCollection(),
         budget = this?.budget,
         genres = this.genres?.toDomainGenre(),
@@ -47,7 +47,7 @@ fun MoviesDetailResponse.toDomainModel(): MovieDetailDomain {
         original_title = this.original_title,
         overview = this.overview,
         popularity = this.popularity,
-        poster_path = BuildConfig.IMAGE_URL + this.poster_path,
+        poster_path = Constants.IMAGE_URL + this.poster_path,
         production_companies = this.production_companies?.toDomainProductionCompany(),
         production_countries = this.production_countries?.toDomainProductionCountry(),
         release_date = this.release_date,

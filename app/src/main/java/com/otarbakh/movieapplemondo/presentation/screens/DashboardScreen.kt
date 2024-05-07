@@ -34,7 +34,7 @@ import com.otarbakh.movieapplemondo.presentation.navigation.homeNavGraph
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun DashboardScreen() {
-    val navController:NavHostController = rememberNavController()
+    val navController: NavHostController = rememberNavController()
     val lottieStarsBackground by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.rising_bubbles_lottie))
 
     Scaffold(
@@ -43,16 +43,15 @@ fun DashboardScreen() {
             BottomBarCustom(navController = navController)
         }
     ) {
-        //content
         Box(modifier = Modifier.fillMaxSize()) {
 
             homeNavGraph(navController = navController)
 
             LottieAnimation(
                 composition = lottieStarsBackground,
-                modifier = Modifier.
-                fillMaxWidth(1f),
-                iterations = LottieConstants.IterateForever)
+                modifier = Modifier.fillMaxWidth(1f),
+                iterations = LottieConstants.IterateForever
+            )
         }
 
     }
@@ -60,7 +59,7 @@ fun DashboardScreen() {
 
 
 @Composable
-fun BottomBarCustom(navController: NavHostController){
+fun BottomBarCustom(navController: NavHostController) {
     val menuItems = listOf(
         HomeScreen.MoviesHomeScreen,
         HomeScreen.FavoritesHomeScreen
@@ -76,14 +75,21 @@ fun BottomBarCustom(navController: NavHostController){
             containerColor = Color.Black.copy(alpha = 0.8f),
         ) {
             menuItems.forEach { screen ->
-                //setup the alpha for the selected item
-                val isSelectedMenu = currentDestination?.hierarchy?.any { it.route == screen.route } == true
+                val isSelectedMenu =
+                    currentDestination?.hierarchy?.any { it.route == screen.route } == true
                 val backgroundAlpha = if (isSelectedMenu) 1f else 0.6f
 
                 NavigationBarItem(
                     label = {
-                        Text(text = screen.title, color = Color.White.copy(alpha = backgroundAlpha)) },
-                    icon = { Icon(painterResource(id = screen.icon), contentDescription = screen.title, modifier = Modifier.graphicsLayer(alpha = backgroundAlpha)) },
+                        Text(text = screen.title, color = Color.White.copy(alpha = backgroundAlpha))
+                    },
+                    icon = {
+                        Icon(
+                            painterResource(id = screen.icon),
+                            contentDescription = screen.title,
+                            modifier = Modifier.graphicsLayer(alpha = backgroundAlpha)
+                        )
+                    },
                     selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
                     onClick = {
                         navController.navigate(screen.route) {

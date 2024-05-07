@@ -31,7 +31,7 @@ interface IMoviesRemoteDataSource {
 
 class MoviesRemoteDataSource @Inject constructor(
     private val iMoviesService: IMoviesService
-) :IMoviesRemoteDataSource {
+) : IMoviesRemoteDataSource {
 
     override suspend fun getPopularMovies(
         api_key: String,

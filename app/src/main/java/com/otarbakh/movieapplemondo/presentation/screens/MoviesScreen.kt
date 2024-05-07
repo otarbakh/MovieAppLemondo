@@ -54,21 +54,19 @@ fun MoviesScreen(
                 .clip(RoundedCornerShape(40.dp)),
             query = searchQuery,
             onQueryChange = { queryChanged ->
-                searchQuery = queryChanged // update the query state
-                onQueryChange(queryChanged) // call the callback
+                searchQuery = queryChanged
+                onQueryChange(queryChanged)
             },
             onSearch = { query ->
-                // Handle search ImeAction.Search here
             },
             active = true,
             onActiveChange = { isActive ->
             },
-            placeholder = { Text("Busca una película") },
+            placeholder = { Text("Search Movie") },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-            //trailingIcon = { Icon(Icons.Default.MoreVert, contentDescription = null) }
-        ) {
-            // Show suggestions here
-            // for example a LazyColumn with suggestion items
+
+            ) {
+
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -78,8 +76,6 @@ fun MoviesScreen(
             onClickNavigateToDetails = onClickNavigateToDetails,
             popularMoviesState = moviesList
         )
-
-
     }
 }
 

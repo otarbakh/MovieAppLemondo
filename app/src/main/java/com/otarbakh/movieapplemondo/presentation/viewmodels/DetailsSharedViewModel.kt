@@ -9,16 +9,16 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class DetailsSharedViewModel @Inject constructor() : ViewModel(){
+class DetailsSharedViewModel @Inject constructor() : ViewModel() {
 
     private val _movieId = mutableStateOf(0)
 
 
-    fun setMovieId(movieId: Int){
+    fun setMovieId(movieId: Int) {
         _movieId.value = movieId
     }
 
-    fun getMovieId(): Int{
+    fun getMovieId(): Int {
         return _movieId.value
     }
 

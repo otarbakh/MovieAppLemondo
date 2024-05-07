@@ -2,7 +2,7 @@ package com.otarbakh.movieapplemondo.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.otarbakh.movieapplemondo.BuildConfig
+import com.otarbakh.movieapplemondo.common.Constants
 import com.otarbakh.movieapplemondo.domain.NoConnectivityException
 import com.otarbakh.movieapplemondo.usecases.GetPopularMoviesUseCase
 import com.otarbakh.movieapplemondo.usecases.PopularMoviesResult
@@ -38,7 +38,7 @@ class MoviesViewModel @Inject constructor(
 
     fun getPopularMovies() = viewModelScope.launch(Dispatchers.IO){
         getPopularMoviesUseCase.invoke(
-            api_key = BuildConfig.API_KEY,
+            api_key = Constants.APY_KEY,
             language = "en-EN",
             page = 1
         ).onStart {
@@ -47,7 +47,6 @@ class MoviesViewModel @Inject constructor(
             _moviesStateResult.value = PopularMoviesResult.Success(it)
         }.catch {
             when(it){
-                //TODO: Add more cases Internet connection, etc
                 is NoConnectivityException -> {
                     _moviesStateResult.value = PopularMoviesResult.InternetError
                 }
@@ -63,16 +62,14 @@ class MoviesViewModel @Inject constructor(
             getPopularMovies()
             return
         }
-        // Search movie only if query is not empty
         searchMovie(query)
     }
 
     private fun searchMovie(query:String) = viewModelScope.launch(Dispatchers.IO){
         searchMovieUseCase.invoke(
-            api_key = BuildConfig.API_KEY,
+            api_key = Constants.APY_KEY,
             language = "en-EN",
             query = query,
-            //page = 1
         ).onStart {
             _moviesStateResult.value = PopularMoviesResult.Loading(true)
         }.onEach {

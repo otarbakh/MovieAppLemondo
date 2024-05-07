@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -53,10 +54,11 @@ fun DetailsMovieContent(
     Column(modifier = Modifier.fillMaxSize()) {
 
         Spacer(modifier = Modifier.height(10.dp))
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .height(36.dp)
-            .padding(horizontal = 24.dp),
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(36.dp)
+                .padding(horizontal = 24.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
 
@@ -83,7 +85,7 @@ fun DetailsMovieContent(
                 modifier = Modifier.clickable {
                     onClickFavorite()
                 },
-                painter = painterResource(id = if(isFavoriteMovie) R.drawable.ic_love else R.drawable.ic_love_border),
+                painter = painterResource(id = if (isFavoriteMovie) R.drawable.ic_love else R.drawable.ic_love_border),
                 contentDescription = null,
                 tint = Color.Black,
             )
@@ -124,7 +126,8 @@ fun DetailsMovieContent(
                             )
                             .padding(start = 8.dp, top = 4.dp, end = 8.dp, bottom = 4.dp),
                         colors = CardDefaults.cardColors(
-                            containerColor = androidx.compose.ui.graphics.Color.Transparent),
+                            containerColor = androidx.compose.ui.graphics.Color.Transparent
+                        ),
                     ) {
                         Row() {
                             Icon(
@@ -151,8 +154,9 @@ fun DetailsMovieContent(
                     .width(95.dp)
                     .height(120.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = androidx.compose.ui.graphics.Color.Gray),
-                shape = RoundedCornerShape (16.dp),
+                    containerColor = androidx.compose.ui.graphics.Color.Gray
+                ),
+                shape = RoundedCornerShape(16.dp),
             ) {
                 AsyncImage(
                     modifier = Modifier
@@ -164,7 +168,6 @@ fun DetailsMovieContent(
                 )
             }
 
-            //Title
             Text(
                 modifier = Modifier
                     .width(210.dp)
@@ -175,18 +178,22 @@ fun DetailsMovieContent(
                 fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
                 fontWeight = FontWeight(600),
             )
-
         }
 
         Spacer(modifier = Modifier.height(75.dp))
 
-        HorizontalThreeOptions(yearRelease = releaseDate, duration = runtime , genre = if(genres.firstOrNull() == null) "" else genres.firstOrNull()?.name.toString())
+        HorizontalThreeOptions(
+            yearRelease = releaseDate,
+            duration = runtime,
+            genre = if (genres.firstOrNull() == null) "" else genres.firstOrNull()?.name.toString()
+        )
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        //Description Title
         Text(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp),
             text = "Description",
             fontSize = 20.sp,
             fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
@@ -195,9 +202,10 @@ fun DetailsMovieContent(
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        //Description
         Text(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp),
             text = description,
             textAlign = TextAlign.Justify,
             fontSize = 14.sp,
@@ -209,9 +217,11 @@ fun DetailsMovieContent(
 
         val listGenres = genres.map { it.name }.joinToString(separator = " * ")
 
-        //Genres Action * Horror * Comedy
+
         Text(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp),
             text = listGenres,
             fontSize = 12.sp,
             textAlign = TextAlign.Center,
@@ -224,14 +234,15 @@ fun DetailsMovieContent(
 
 @Composable
 fun HorizontalThreeOptions(
-    yearRelease : String ,
-    duration : String ,
-    genre : String ,
+    yearRelease: String,
+    duration: String,
+    genre: String,
 ) {
 
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .padding(horizontal = 24.dp),
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 24.dp),
         horizontalArrangement = Arrangement.Center,
     ) {
 
@@ -317,7 +328,7 @@ fun HorizontalThreeOptions(
 fun DetailsMovieContentPrev() {
     DetailsMovieContent(
         title = "Spiderman No Way Home",
-        description = "From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government, undertaking high-risk black ops missions in exchange for commuted prison sentences.",
+        description = stringResource(R.string.DC),
         imageBackdrop = "https://image.tmdb.org/t/p/w500/vViRXFnSyGJ2fzMbcc5sqTKswcd.jpg",
         imagePoster = "https://image.tmdb.org/t/p/w500/eLzStFuergouErSQlfABthuQHCJ.jpg",
         genres = listOf(GenreDomain(name = "Action")),

@@ -1,7 +1,7 @@
 package com.otarbakh.movieapplemondo.framework.network
 
 
-import com.otarbakh.movieapplemondo.BuildConfig
+import com.otarbakh.movieapplemondo.common.Constants
 import com.otarbakh.movieapplemondo.framework.network.internetconnection.ConnectivityInterceptor
 import dagger.Module
 import dagger.Provides
@@ -23,17 +23,16 @@ object NetworkModule {
         return OkHttpClient.Builder()
             .followRedirects(true)
             .followSslRedirects(true)
-            //.addInterceptor(connectivityInterceptor) // Not implemented yet //take care
             .build()
     }
 
     @Singleton
     @Provides
     fun provideRetrofit(
-         okHttpClient: OkHttpClient
+        okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(Constants.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

@@ -30,9 +30,9 @@ fun LoadingScreen() {
         ) {
             LottieAnimation(
                 composition = lottieLoading,
-                modifier = Modifier.
-                fillMaxWidth(1f),
-                iterations = LottieConstants.IterateForever)
+                modifier = Modifier.fillMaxWidth(1f),
+                iterations = LottieConstants.IterateForever
+            )
         }
     }
 }

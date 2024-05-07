@@ -25,7 +25,7 @@ fun FavoritesScreen(
     onClickNavigateToDetails: (Int) -> Unit,
     favoriteMovies: List<FavoriteMoviesEntity>,
 ) {
-    when{
+    when {
         favoriteMovies.isEmpty() -> {
             CustomEmptyStateScreen(
                 modifier = Modifier.padding(bottom = 180.dp),
@@ -34,6 +34,7 @@ fun FavoritesScreen(
                 description = stringResource(R.string.screen_empty_description_favorites)
             )
         }
+
         else -> {
             LazyVerticalStaggeredGrid(
                 modifier = Modifier.fillMaxSize(),
@@ -41,7 +42,7 @@ fun FavoritesScreen(
                 verticalItemSpacing = 0.dp,
                 horizontalArrangement = Arrangement.Center,
                 content = {
-                    items(favoriteMovies){
+                    items(favoriteMovies) {
                         VerticalMovieItem(
                             title = it.title,
                             release = it.overview,
@@ -49,7 +50,7 @@ fun FavoritesScreen(
                             onClick = { onClickNavigateToDetails(it.id) }
                         )
 
-                        if(it == favoriteMovies.last()) {
+                        if (it == favoriteMovies.last()) {
                             Spacer(modifier = Modifier.height(80.dp))
                         }
 

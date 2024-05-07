@@ -32,8 +32,8 @@ fun RootNavigationGraph(navController: NavHostController = rememberNavController
             DashboardScreen()
         }
 
-        composable(route = Graph.DETAILS){
-//            DetailsMovieScreen()
+        composable(route = Graph.DETAILS) {
+            
         }
 
     }
@@ -41,7 +41,7 @@ fun RootNavigationGraph(navController: NavHostController = rememberNavController
 
 
 @Composable
-fun homeNavGraph (navController: NavHostController) {
+fun homeNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
         route = Graph.HOME,
@@ -83,10 +83,10 @@ fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
     navigation(
         route = Graph.DETAILS + "/{movieId}",
         startDestination = DetailsScreen.Information.route
-    ){
+    ) {
 
         composable(DetailsScreen.Information.route) {
-            val movieId = it.arguments?.getString("movieId")?: ""
+            val movieId = it.arguments?.getString("movieId") ?: ""
             val detailsMovieViewModel = hiltViewModel<DetailsMovieViewModel>()
             val stateMovieDetail by detailsMovieViewModel.detailsMovie.collectAsStateWithLifecycle()
             val isFavoriteMovie by detailsMovieViewModel.isFavoriteMovie.collectAsStateWithLifecycle()
@@ -107,13 +107,13 @@ fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
 }
 
 
-sealed class DetailsScreen(val route:String){
-    object Information: DetailsScreen("information_screen")
+sealed class DetailsScreen(val route: String) {
+    object Information : DetailsScreen("information_screen")
 }
 
-sealed class HomeScreen(val route:String, val icon: Int, val title:String){
-    object MoviesHomeScreen: HomeScreen("movies_screen", R.drawable.ic_movie, "Movies")
-    object FavoritesHomeScreen: HomeScreen("favorites_screen", R.drawable.ic_love, "Favorites")
+sealed class HomeScreen(val route: String, val icon: Int, val title: String) {
+    object MoviesHomeScreen : HomeScreen("movies_screen", R.drawable.ic_movie, "Movies")
+    object FavoritesHomeScreen : HomeScreen("favorites_screen", R.drawable.ic_love, "Favorites")
 }
 
 

@@ -7,6 +7,7 @@ data class Genre(
     val id: Int,
     val name: String
 )
+
 fun List<Genre>.toDomainGenre(): List<GenreDomain> {
     return this.map {
         GenreDomain(

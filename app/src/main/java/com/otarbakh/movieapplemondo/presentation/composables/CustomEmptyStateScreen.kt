@@ -34,7 +34,7 @@ fun CustomEmptyStateScreen(
     @DrawableRes image: Int,
     title: String,
     description: String
-    ) {
+) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -64,7 +64,7 @@ fun CustomEmptyStateScreen(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                     text = title,
-                    )
+                )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     modifier = Modifier

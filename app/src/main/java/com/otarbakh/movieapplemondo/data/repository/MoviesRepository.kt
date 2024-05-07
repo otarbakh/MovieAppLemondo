@@ -30,7 +30,6 @@ interface IMoviesRepository {
     ): Flow<PopularsMovieResponse>
 
 
-    //Local
     fun getFavoriteMovies(): Flow<List<FavoriteMoviesEntity>>
     fun getFavoriteMovieById(id: Int): Flow<FavoriteMoviesEntity>
     suspend fun insertFavoriteMovie(favoriteMoviesEntity: FavoriteMoviesEntity)
@@ -43,17 +42,17 @@ class MoviesRepository @Inject constructor(
     private val local: FavoriteMoviesLocalDataSource
 ) : IMoviesRepository {
 
-       override suspend fun getPopularMovies(
-            api_key: String,
-            language: String,
-            page: Int
-        ) = remote.getPopularMovies(api_key, language, page)
+    override suspend fun getPopularMovies(
+        api_key: String,
+        language: String,
+        page: Int
+    ) = remote.getPopularMovies(api_key, language, page)
 
-        override suspend fun getMovieDetail(
-            api_key: String,
-            language: String,
-            id: String
-        ) = remote.getMovieDetail(api_key, language, id)
+    override suspend fun getMovieDetail(
+        api_key: String,
+        language: String,
+        id: String
+    ) = remote.getMovieDetail(api_key, language, id)
 
     override suspend fun searchMovie(
         query: String,
