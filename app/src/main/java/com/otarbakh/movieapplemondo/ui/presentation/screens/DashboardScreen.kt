@@ -35,8 +35,6 @@ import com.otarbakh.movieapplemondo.ui.presentation.navigation.homeNavGraph
 @Composable
 fun DashboardScreen() {
     val navController: NavHostController = rememberNavController()
-    val lottieStarsBackground by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.rising_bubbles_lottie))
-
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
@@ -44,16 +42,8 @@ fun DashboardScreen() {
         }
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
-
             homeNavGraph(navController = navController)
-
-//            LottieAnimation(
-//                composition = lottieStarsBackground,
-//                modifier = Modifier.fillMaxWidth(1f),
-//                iterations = LottieConstants.IterateForever
-//            )
         }
-
     }
 }
 

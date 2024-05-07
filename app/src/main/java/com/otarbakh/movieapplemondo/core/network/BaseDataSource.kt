@@ -2,6 +2,7 @@ package com.otarbakh.movieapplemondo.core.network
 
 import android.util.Log
 import com.google.gson.Gson
+import com.otarbakh.movieapplemondo.R
 import com.otarbakh.movieapplemondo.domain.GeneralErrorResponse
 import com.otarbakh.movieapplemondo.domain.InvalidExceptionGeneral
 import retrofit2.Response

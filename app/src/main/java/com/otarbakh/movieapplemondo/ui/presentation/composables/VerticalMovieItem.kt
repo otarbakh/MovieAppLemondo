@@ -16,10 +16,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.otarbakh.movieapplemondo.R
 
 @Composable
 fun VerticalMovieItem(
@@ -49,7 +51,7 @@ fun VerticalMovieItem(
                         .height(200.dp)
                         .fillMaxSize(),
                     model = imageUrl,
-                    contentDescription = "Movie Image",
+                    contentDescription = stringResource(R.string.movie_image),
                     contentScale = androidx.compose.ui.layout.ContentScale.FillBounds,
                 )
             }
@@ -84,9 +86,9 @@ fun VerticalMovieItem(
 @Composable
 fun VerticalMovieItemPrev() {
     VerticalMovieItem(
-        title = "Fast & Furious X",
-        release = "2021-06-25",
-        imageUrl = "https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg",
+        title = stringResource(R.string.fast_furious_x),
+        release = stringResource(R.string._2021_06_25),
+        imageUrl = stringResource(R.string.Image_URL),
         onClick = {}
     )
 }

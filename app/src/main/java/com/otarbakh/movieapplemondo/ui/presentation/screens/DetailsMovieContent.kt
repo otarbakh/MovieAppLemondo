@@ -126,7 +126,7 @@ fun DetailsMovieContent(
                             )
                             .padding(start = 8.dp, top = 4.dp, end = 8.dp, bottom = 4.dp),
                         colors = CardDefaults.cardColors(
-                            containerColor = androidx.compose.ui.graphics.Color.Transparent
+                            containerColor = Color.Transparent
                         ),
                     ) {
                         Row() {
@@ -154,7 +154,7 @@ fun DetailsMovieContent(
                     .width(95.dp)
                     .height(120.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = androidx.compose.ui.graphics.Color.Gray
+                    containerColor = Color.Gray
                 ),
                 shape = RoundedCornerShape(16.dp),
             ) {
@@ -238,24 +238,19 @@ fun HorizontalThreeOptions(
     duration: String,
     genre: String,
 ) {
-
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 24.dp),
         horizontalArrangement = Arrangement.Center,
     ) {
-
         Icon(
             modifier = Modifier.size(16.dp),
             painter = painterResource(id = R.drawable.ic_calendar),
             contentDescription = null,
             tint = Color.Gray,
         )
-
         Spacer(modifier = Modifier.width(4.dp))
-
-        //Year
         Text(
             text = yearRelease,
             color = Color.Black,
@@ -263,26 +258,19 @@ fun HorizontalThreeOptions(
             fontWeight = FontWeight(600),
             fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
         )
-
         Spacer(modifier = Modifier.width(12.dp))
-
         Icon(
             painter = painterResource(id = R.drawable.ic_vertical_line),
             contentDescription = null,
             tint = Color.Gray,
         )
-
         Spacer(modifier = Modifier.width(12.dp))
-
         Icon(
             painter = painterResource(id = R.drawable.ic_clock),
             contentDescription = null,
             tint = Color.Gray,
         )
-
         Spacer(modifier = Modifier.width(4.dp))
-
-        //Duration
         Text(
             text = duration,
             color = Color.Black,
@@ -290,26 +278,19 @@ fun HorizontalThreeOptions(
             fontWeight = FontWeight(600),
             fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
         )
-
         Spacer(modifier = Modifier.width(12.dp))
-
         Icon(
             painter = painterResource(id = R.drawable.ic_vertical_line),
             contentDescription = null,
             tint = Color.Gray,
         )
-
         Spacer(modifier = Modifier.width(12.dp))
-
         Icon(
             painter = painterResource(id = R.drawable.ic_ticket),
             contentDescription = null,
             tint = Color.Gray,
         )
-
         Spacer(modifier = Modifier.width(4.dp))
-
-        //Genre
         Text(
             text = genre,
             color = Color.Black,
@@ -317,26 +298,5 @@ fun HorizontalThreeOptions(
             fontWeight = FontWeight(600),
             fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
         )
-
     }
-
-}
-
-
-@Preview
-@Composable
-fun DetailsMovieContentPrev() {
-    DetailsMovieContent(
-        title = "Spiderman No Way Home",
-        description = stringResource(R.string.DC),
-        imageBackdrop = "https://image.tmdb.org/t/p/w500/vViRXFnSyGJ2fzMbcc5sqTKswcd.jpg",
-        imagePoster = "https://image.tmdb.org/t/p/w500/eLzStFuergouErSQlfABthuQHCJ.jpg",
-        genres = listOf(GenreDomain(name = "Action")),
-        releaseDate = "2021-12-15",
-        voteAverage = "9.5",
-        runtime = "118 Minutes",
-        onClickBack = {},
-        onClickFavorite = {},
-        isFavoriteMovie = false
-    )
 }

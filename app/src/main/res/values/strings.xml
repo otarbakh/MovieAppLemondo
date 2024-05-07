@@ -14,4 +14,18 @@ You don\'t have favorites</string>
     <string name="screen_empty_description_favorites">Add movies to your favorites to watch here</string>
     <string name="description">During numerous more than impossible missions, Dom Toretto and his family have been able to outsmart, have more courage and go faster than any enemy that came their way. But now they will have to face the most lethal opponent they have ever known: a terrible danger that resurfaces from the past, who is driven by a bloody thirst for revenge and who is ready to tear the family apart and destroy forever everything Dom holds dear. it matters.</string>
     <string name="DC">From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government, undertaking high-risk black ops missions in exchange for commuted prison sentences.</string>
+    <string name="force_error_for_testing_purpose_only_basedatasource_kt">force error for testing purpose only -- BaseDataSource.kt</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="check_your_internet_connection_and_try_again">Check your internet connection and try again</string>
+    <string name="you_don_t_have_favorites">You don\'t have favorites</string>
+    <string name="add_movies_to_your_favorites_to_watch_here">Add movies to your favorites to watch here</string>
+    <string name="release_date">Release date</string>
+    <string name="movie_image">Movie Image</string>
+    <string name="fast_furious_x"><![CDATA[Fast & Furious X]]></string>
+    <string name="_2021_06_25">2021-06-25</string>
+    <string name="Image_URL">https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg</string>
+    <string name="spiderman_no_way_home">Spiderman No Way Home</string>
+    <string name="_2021_12_15">2021-12-15</string>
+    <string name="action">Action</string>
+    <string name="search_movie">Search Movie</string>
 </resources>

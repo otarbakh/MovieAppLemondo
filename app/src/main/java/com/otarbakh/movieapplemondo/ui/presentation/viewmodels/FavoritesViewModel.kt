@@ -19,14 +19,11 @@ import javax.inject.Inject
 class FavoritesViewModel @Inject constructor(
     private val getFavoriteMoviesUseCase: GetFavoriteMoviesUseCase
 ) : ViewModel() {
-
     private val _favoriteMovies = MutableStateFlow<List<FavoriteMoviesEntity>>(emptyList())
     val favoriteMovies = _favoriteMovies
-
     init {
         getFavoriteMovies()
     }
-
     private fun getFavoriteMovies() = viewModelScope.launch(Dispatchers.IO) {
         getFavoriteMoviesUseCase
             .invoke()

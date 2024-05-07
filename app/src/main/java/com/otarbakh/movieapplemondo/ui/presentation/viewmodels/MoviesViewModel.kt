@@ -24,18 +24,15 @@ class MoviesViewModel @Inject constructor(
     private val getPopularMoviesUseCase: GetPopularMoviesUseCase,
     private val searchMovieUseCase: SearchMovieUseCase
 ):ViewModel(){
-
     private val _moviesStateResult = MutableStateFlow<PopularMoviesResult>(PopularMoviesResult.Loading(false))
     val movies = _moviesStateResult.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5000,1),
         initialValue = PopularMoviesResult.Loading(false)
     )
-
     init {
         getPopularMovies()
     }
-
     fun getPopularMovies() = viewModelScope.launch(Dispatchers.IO){
         getPopularMoviesUseCase.invoke(
             api_key = Constants.APY_KEY,
@@ -56,7 +53,6 @@ class MoviesViewModel @Inject constructor(
             }
         }.launchIn(viewModelScope)
     }
-
     fun searchMovieOrEmpty(query:String){
         if(query.isEmpty()){
             getPopularMovies()

@@ -38,8 +38,10 @@ fun HorizontalMovieItem(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(horizontal = 16.dp,
-                vertical =  dimensionResource(id = R.dimen.padding_small)),
+            .padding(
+                horizontal = 16.dp,
+                vertical = dimensionResource(id = R.dimen.padding_small)
+            ),
         shape = RoundedCornerShape(16.dp),
     ) {
         Row(modifier = Modifier.fillMaxWidth()) {
@@ -75,7 +77,7 @@ fun HorizontalMovieItem(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "Release date",
+                    text = stringResource(R.string.release_date),
                     maxLines = 3,
                     overflow = TextOverflow.Ellipsis
                 )

@@ -54,37 +54,9 @@ fun FavoritesScreen(
                         if (it == favoriteMovies.last()) {
                             Spacer(modifier = Modifier.height(80.dp))
                         }
-
                     }
                 }
             )
         }
     }
-
-}
-
-@Preview
-@Composable
-fun PreviewFavoritesScreen() {
-    FavoritesScreen(
-        onClickNavigateToDetails = {},
-        favoriteMovies = listOf(
-            FavoriteMoviesEntity(
-                id = 1,
-                title = "Title",
-                overview = "Release",
-                poster_path = "https://image.tmdb.org/t/p/w500/6KErczPBROQty7QoIsaa6wJYXZi.jpg",
-                vote_average = 7.5f,
-                release_date = "2021-08-11",
-            ),
-            FavoriteMoviesEntity(
-                id = 2,
-                title = "Title",
-                overview = "Release",
-                poster_path = "https://image.tmdb.org/t/p/w500/6KErczPBROQty7QoIsaa6wJYXZi.jpg",
-                vote_average = 7.5f,
-                release_date = "2021-08-11",
-            ),
-        )
-    )
 }

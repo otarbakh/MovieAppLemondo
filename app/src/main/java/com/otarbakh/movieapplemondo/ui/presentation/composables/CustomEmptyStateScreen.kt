@@ -104,7 +104,7 @@ fun NoInternetConnectionPrev() {
     CustomEmptyStateScreen(
         image = R.drawable.background_no_internet_connection,
         title = "No internet connection",
-        description = "Check your internet connection and try again"
+        description = stringResource(R.string.check_your_internet_connection_and_try_again)
     )
 }
 
@@ -113,7 +113,7 @@ fun NoInternetConnectionPrev() {
 fun FavoriteEmptyPrev() {
     CustomEmptyStateScreen(
         image = R.drawable.background_box_empty_state,
-        title = "You don't have favorites",
-        description = "Add movies to your favorites to watch here"
+        title = stringResource(R.string.you_don_t_have_favorites),
+        description = stringResource(R.string.add_movies_to_your_favorites_to_watch_here)
     )
 }

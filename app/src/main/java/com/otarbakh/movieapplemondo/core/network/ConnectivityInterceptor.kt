@@ -1,5 +1,6 @@
 package com.otarbakh.movieapplemondo.core.network
 
+import com.otarbakh.movieapplemondo.R
 import com.otarbakh.movieapplemondo.domain.NoConnectivityException
 import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Interceptor
@@ -11,7 +12,7 @@ class ConnectivityInterceptor @Inject constructor(
 ) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         if (!isOnline()) {
-            throw NoConnectivityException("No internet connection")
+            throw NoConnectivityException(context.getString(R.string.no_internet_connection))
         }
         return chain.proceed(chain.request())
     }

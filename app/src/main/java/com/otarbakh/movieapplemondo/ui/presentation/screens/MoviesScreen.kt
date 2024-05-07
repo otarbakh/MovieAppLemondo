@@ -62,7 +62,7 @@ fun MoviesScreen(
             active = true,
             onActiveChange = { isActive ->
             },
-            placeholder = { Text("Search Movie") },
+            placeholder = { Text(stringResource(R.string.search_movie)) },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
 
             ) {
