@@ -54,35 +54,6 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-//    flavorDimensions("default")
-//    productFlavors {
-//        create("dev") {
-//            dimension = "default"
-//            applicationIdSuffix = ".dev"
-//            versionNameSuffix = "-dev"
-//
-//            buildConfigField("String", "API_KEY", "\"046d071e00eac1692b4be7f493a6f763\"")
-//
-//            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-//
-//            buildConfigField("String", "IMAGE_URL", "\"https://image.tmdb.org/t/p/w500/\"")
-//        }
-//
-//        create("prod") {
-//            dimension = "default"
-//            applicationIdSuffix = ".prod"
-//            versionNameSuffix = "-prod"
-//
-//
-//            buildConfigField("String", "API_KEY", "\"046d071e00eac1692b4be7f493a6f763\"")
-//
-//            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-//
-//            buildConfigField("String", "IMAGE_URL", "\"https://image.tmdb.org/t/p/w500/\"")
-//
-//        }
-//
-//    }
 }
 
 
