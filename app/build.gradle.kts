@@ -120,9 +120,6 @@ dependencies {
 // Coil
     implementation("io.coil-kt:coil-compose:2.4.0")
 
-// Rating Bar
-//    implementation("com.github.a914-gowtham:compose-ratingbar:1.3.4")
-
 // Room
     val roomVersion = "2.5.2"
     implementation("androidx.room:room-runtime:$roomVersion")

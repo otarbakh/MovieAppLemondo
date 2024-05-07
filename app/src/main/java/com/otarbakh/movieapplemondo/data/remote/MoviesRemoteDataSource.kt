@@ -3,7 +3,7 @@ package com.otarbakh.movieapplemondo.data.remote
 
 import com.otarbakh.movieapplemondo.domain.model.MoviesDetailResponse
 import com.otarbakh.movieapplemondo.domain.PopularsMovieResponse
-import com.otarbakh.movieapplemondo.framework.network.performNetworkFlow
+import com.otarbakh.movieapplemondo.core.network.performNetworkFlow
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

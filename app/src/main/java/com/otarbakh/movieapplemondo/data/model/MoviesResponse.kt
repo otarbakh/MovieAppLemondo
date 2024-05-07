@@ -1,6 +1,6 @@
 package com.otarbakh.movieapplemondo.data.model
 
-import com.otarbakh.movieapplemondo.common.Constants
+import com.otarbakh.movieapplemondo.core.network.Constants
 import com.otarbakh.movieapplemondo.domain.model.MovieDetailDomain
 import com.otarbakh.movieapplemondo.domain.model.MoviesDetailResponse
 

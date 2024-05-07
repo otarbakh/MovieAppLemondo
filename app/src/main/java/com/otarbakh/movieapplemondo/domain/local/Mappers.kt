@@ -1,12 +1,13 @@
 package com.otarbakh.movieapplemondo.domain.local
 
 
+import com.otarbakh.movieapplemondo.data.database.FavoriteMoviesEntity
 import com.otarbakh.movieapplemondo.domain.model.MovieDetailDomain
 
 
 fun MovieDetailDomain.toFavoriteMoviesEntity(): FavoriteMoviesEntity {
     return FavoriteMoviesEntity(
-        id = this.id?.toInt() ?: 0,
+        id = this.id ?: 0,
         poster_path = this.poster_path ?: "",
         overview = this.overview ?: "",
         title = this.title ?: "",

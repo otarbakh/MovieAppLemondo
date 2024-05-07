@@ -1,7 +1,7 @@
 package com.otarbakh.movieapplemondo.data.local
 
-import com.otarbakh.movieapplemondo.domain.local.FavoriteMoviesEntity
-import com.otarbakh.movieapplemondo.domain.local.FavoriteMoviesEntityDao
+import com.otarbakh.movieapplemondo.data.database.FavoriteMoviesEntity
+import com.otarbakh.movieapplemondo.data.database.FavoriteMoviesEntityDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -25,5 +25,4 @@ constructor(
     override suspend fun deleteFavoriteMovie(id: Int) {
         return moviesDao.deleteById(id)
     }
-
 }

@@ -1,6 +1,6 @@
 package com.otarbakh.movieapplemondo.data.local
 
-import com.otarbakh.movieapplemondo.domain.local.FavoriteMoviesEntity
+import com.otarbakh.movieapplemondo.data.database.FavoriteMoviesEntity
 import kotlinx.coroutines.flow.Flow
 
 interface FavoriteMoviesLocalDataSource {

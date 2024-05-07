@@ -1,7 +1,6 @@
 package com.otarbakh.movieapplemondo.domain
 
-import com.otarbakh.movieapplemondo.BuildConfig
-import com.otarbakh.movieapplemondo.common.Constants
+import com.otarbakh.movieapplemondo.core.network.Constants
 
 
 data class PopularsMovieResponse(
