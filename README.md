@@ -11,7 +11,7 @@ The Movies App is a sample Android application that allows users to browse and d
 
 - Browse and search movies
 - View movies details ( title, description, release date, and rating)
-- Add movies to favorites
+- Add/delete movies to favorites
 
 
 ## The App uses:
