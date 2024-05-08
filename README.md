@@ -1,9 +1,3 @@
-# Movies App
-
-![Movie App - Jetpack Compose](https://github.com/ahuamana/MoviesAppJetpackCompose/assets/60039961/a491680c-5bae-4464-b8ec-c781e6e5b60d)
-
-
-The Movies App is a sample Android application that allows users to browse and discover movies. It follows the principles of Clean Architecture, utilizes the MVVM (Model-View-ViewModel) architectural pattern, and is built using Jetpack Compose. The app also integrates Room for local database storage and utilizes Coroutines and Flow for asynchronous programming.
 
 ## Movie Application for Lemondo
 
