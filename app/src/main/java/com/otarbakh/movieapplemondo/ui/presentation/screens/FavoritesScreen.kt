@@ -17,6 +17,11 @@ import com.otarbakh.movieapplemondo.R
 import com.otarbakh.movieapplemondo.data.database.FavoriteMoviesEntity
 import com.otarbakh.movieapplemondo.ui.presentation.composables.CustomEmptyStateScreen
 import com.otarbakh.movieapplemondo.ui.presentation.composables.VerticalMovieItem
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_0_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_16_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_180_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_20_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_80_DP
 
 
 @Composable
@@ -27,7 +32,7 @@ fun FavoritesScreen(
     when {
         favoriteMovies.isEmpty() -> {
             CustomEmptyStateScreen(
-                modifier = Modifier.padding(bottom = 180.dp),
+                modifier = Modifier.padding(bottom = PADDING_180_DP),
                 image = R.drawable.background_box_empty_state,
                 title = stringResource(R.string.screen_empty_title_favorites),
                 description = stringResource(R.string.screen_empty_description_favorites)
@@ -38,9 +43,9 @@ fun FavoritesScreen(
             LazyVerticalStaggeredGrid(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(vertical = 16.dp),
+                    .padding(vertical = PADDING_16_DP),
                 columns = StaggeredGridCells.Fixed(2),
-                verticalItemSpacing = 0.dp,
+                verticalItemSpacing = PADDING_0_DP,
                 horizontalArrangement = Arrangement.Center,
                 content = {
                     items(favoriteMovies) {
@@ -52,7 +57,7 @@ fun FavoritesScreen(
                         )
 
                         if (it == favoriteMovies.last()) {
-                            Spacer(modifier = Modifier.height(80.dp))
+                            Spacer(modifier = Modifier.height(PADDING_80_DP))
                         }
                     }
                 }

@@ -19,7 +19,9 @@ import com.otarbakh.movieapplemondo.R
 
 @Composable
 fun ErrorScreen() {
-    val lottieLoading by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.error_lottie))
+    val lottieLoading by rememberLottieComposition(
+        spec = LottieCompositionSpec.RawRes(R.raw.error_lottie)
+    )
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -38,11 +40,6 @@ fun ErrorScreen() {
     }
 }
 
-@Preview
-@Composable
-fun ErrorScreenPrev() {
-    ErrorScreen()
-}
 
 @Composable
 fun CustomErrorScreenSomethingHappens(
@@ -85,12 +82,6 @@ fun CustomEmptySearchScreen(
         description = description,
         image = R.drawable.background_empty_state
     )
-}
-
-@Preview
-@Composable
-fun ErrorScreen2Prev() {
-    CustomErrorScreenSomethingHappens()
 }
 
 

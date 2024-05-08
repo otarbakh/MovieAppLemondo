@@ -23,13 +23,17 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.otarbakh.movieapplemondo.R
 import com.otarbakh.movieapplemondo.core.extensions.toFormattedDateString
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_150_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_16_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_4_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_8_DP
 
 
 @Composable
 fun HorizontalMovieItem(
     title: String,
-    description:String,
-    rating:Float,
+    description: String,
+    rating: Float,
     imageUrl: String,
     realeaseDate: String,
     onClick: () -> Unit
@@ -39,15 +43,15 @@ fun HorizontalMovieItem(
             .fillMaxWidth()
             .clickable(onClick = onClick)
             .padding(
-                horizontal = 16.dp,
-                vertical = dimensionResource(id = R.dimen.padding_small)
+                horizontal = PADDING_16_DP,
+                vertical = PADDING_8_DP
             ),
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(PADDING_16_DP),
     ) {
         Row(modifier = Modifier.fillMaxWidth()) {
             Card(
                 modifier = Modifier
-                    .height(150.dp)
+                    .height(PADDING_150_DP)
                     .align(CenterVertically)
                     .fillMaxWidth(0.3f),
                 shape = RoundedCornerShape(0.dp),
@@ -66,7 +70,7 @@ fun HorizontalMovieItem(
 
             Column(
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(PADDING_16_DP)
                     .fillMaxWidth()
             ) {
                 Text(
@@ -75,21 +79,19 @@ fun HorizontalMovieItem(
                     fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
                     overflow = TextOverflow.Ellipsis
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(PADDING_8_DP))
                 Text(
                     text = stringResource(R.string.release_date),
                     maxLines = 3,
                     overflow = TextOverflow.Ellipsis
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(PADDING_4_DP))
 
                 Text(text = (realeaseDate.toFormattedDateString()))
 
-                Spacer(modifier = Modifier.height(8.dp))
-
+                Spacer(modifier = Modifier.height(PADDING_8_DP))
 
             }
         }
-
     }
 }

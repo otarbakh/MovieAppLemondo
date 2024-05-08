@@ -39,10 +39,3 @@ fun LoadingScreen() {
 }
 
 
-@Preview
-@Composable
-fun LoadingScreenPrev() {
-    LoadingScreen()
-}
-
-

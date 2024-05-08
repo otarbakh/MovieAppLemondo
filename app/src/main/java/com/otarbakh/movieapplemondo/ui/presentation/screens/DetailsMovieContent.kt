@@ -32,10 +32,30 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.times
 import coil.compose.AsyncImage
 import com.otarbakh.movieapplemondo.R
 import com.otarbakh.movieapplemondo.domain.model.GenreDomain
 import com.otarbakh.movieapplemondo.ui.theme.Green40
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_0_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_10_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_12_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_140_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_150_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_16_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_178_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_18_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_20_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_220_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_24_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_29_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_2_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_36_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_48_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_4_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_54_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_77_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_8_DP
 
 @Composable
 fun DetailsMovieContent(
@@ -53,12 +73,12 @@ fun DetailsMovieContent(
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(PADDING_10_DP))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(36.dp)
-                .padding(horizontal = 24.dp),
+                .height(PADDING_36_DP)
+                .padding(horizontal = PADDING_24_DP),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
 
@@ -73,43 +93,45 @@ fun DetailsMovieContent(
                 tint = Color.Black,
             )
             Text(
-                text = "Details",
+                text = stringResource(R.string.details),
                 color = Color.Black,
                 fontSize = 20.sp,
                 fontWeight = FontWeight(600),
                 fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
-                modifier = Modifier.padding(start = 24.dp)
+                modifier = Modifier.padding(start = PADDING_24_DP)
             )
 
             Icon(
                 modifier = Modifier.clickable {
                     onClickFavorite()
                 },
-                painter = painterResource(id = if (isFavoriteMovie) R.drawable.ic_love else R.drawable.ic_love_border),
+                painter = painterResource(
+                    id = if (isFavoriteMovie) R.drawable.ic_love else R.drawable.ic_love_border
+                ),
                 contentDescription = null,
                 tint = Color.Black,
             )
         }
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(PADDING_20_DP))
 
         Box {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(210.dp),
+                    .height(PADDING_220_DP - PADDING_10_DP),
                 shape = RoundedCornerShape(
-                    topStart = 0.dp,
-                    topEnd = 0.dp,
-                    bottomEnd = 20.dp,
-                    bottomStart = 20.dp
+                    topStart = PADDING_0_DP,
+                    topEnd = PADDING_0_DP,
+                    bottomEnd = PADDING_20_DP,
+                    bottomStart = PADDING_20_DP
                 ),
             ) {
                 Box() {
                     AsyncImage(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(210.dp),
+                            .height(PADDING_220_DP - PADDING_10_DP),
                         model = imageBackdrop,
                         contentDescription = null,
                         contentScale = ContentScale.FillBounds,
@@ -117,14 +139,22 @@ fun DetailsMovieContent(
 
                     androidx.compose.material3.Card(
                         modifier = Modifier
-                            .offset(x = 310.dp, y = 178.dp)
-                            .width(54.dp)
-                            .height(24.dp)
+                            .offset(
+                                x = 2 * PADDING_150_DP + PADDING_10_DP,
+                                y = PADDING_178_DP
+                            )
+                            .width(PADDING_54_DP)
+                            .height(PADDING_24_DP)
                             .background(
                                 color = Color(0x52252836),
-                                shape = RoundedCornerShape(size = 8.dp)
+                                shape = RoundedCornerShape(size = PADDING_8_DP)
                             )
-                            .padding(start = 8.dp, top = 4.dp, end = 8.dp, bottom = 4.dp),
+                            .padding(
+                                start = PADDING_8_DP,
+                                top = PADDING_4_DP,
+                                end = PADDING_8_DP,
+                                bottom = PADDING_4_DP
+                            ),
                         colors = CardDefaults.cardColors(
                             containerColor = Color.Transparent
                         ),
@@ -135,7 +165,7 @@ fun DetailsMovieContent(
                                 contentDescription = null,
                                 tint = Green40,
                             )
-                            Spacer(modifier = Modifier.width(4.dp))
+                            Spacer(modifier = Modifier.width(PADDING_4_DP))
                             Text(
                                 text = voteAverage,
                                 fontSize = 12.sp,
@@ -150,18 +180,18 @@ fun DetailsMovieContent(
 
             androidx.compose.material3.Card(
                 modifier = Modifier
-                    .offset(x = 29.dp, y = 150.dp)
+                    .offset(x = PADDING_29_DP, y = PADDING_150_DP)
                     .width(95.dp)
-                    .height(120.dp),
+                    .height(PADDING_140_DP - PADDING_20_DP),
                 colors = CardDefaults.cardColors(
                     containerColor = Color.Gray
                 ),
-                shape = RoundedCornerShape(16.dp),
+                shape = RoundedCornerShape(PADDING_16_DP),
             ) {
                 AsyncImage(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(210.dp),
+                        .height(PADDING_220_DP - PADDING_10_DP),
                     model = imagePoster,
                     contentDescription = null,
                     contentScale = ContentScale.FillBounds,
@@ -170,9 +200,9 @@ fun DetailsMovieContent(
 
             Text(
                 modifier = Modifier
-                    .width(210.dp)
-                    .height(48.dp)
-                    .offset(x = 140.dp, y = 220.dp),
+                    .width(PADDING_220_DP - PADDING_10_DP)
+                    .height(PADDING_48_DP)
+                    .offset(x = PADDING_140_DP, y = PADDING_220_DP),
                 text = title,
                 fontSize = 20.sp,
                 fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
@@ -180,7 +210,7 @@ fun DetailsMovieContent(
             )
         }
 
-        Spacer(modifier = Modifier.height(75.dp))
+        Spacer(modifier = Modifier.height(PADDING_77_DP - PADDING_2_DP))
 
         HorizontalThreeOptions(
             yearRelease = releaseDate,
@@ -188,24 +218,24 @@ fun DetailsMovieContent(
             genre = if (genres.firstOrNull() == null) "" else genres.firstOrNull()?.name.toString()
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(PADDING_24_DP))
 
         Text(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp),
-            text = "Description",
+                .padding(horizontal = PADDING_24_DP),
+            text = stringResource(R.string.description),
             fontSize = 20.sp,
             fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
             fontWeight = FontWeight(600),
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(PADDING_12_DP))
 
         Text(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp),
+                .padding(horizontal = PADDING_24_DP),
             text = description,
             textAlign = TextAlign.Justify,
             fontSize = 14.sp,
@@ -213,7 +243,7 @@ fun DetailsMovieContent(
             fontWeight = FontWeight(400),
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(PADDING_24_DP))
 
         val listGenres = genres.map { it.name }.joinToString(separator = " * ")
 
@@ -221,7 +251,7 @@ fun DetailsMovieContent(
         Text(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp),
+                .padding(horizontal = PADDING_24_DP),
             text = listGenres,
             fontSize = 12.sp,
             textAlign = TextAlign.Center,
@@ -241,16 +271,16 @@ fun HorizontalThreeOptions(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 24.dp),
+            .padding(horizontal = PADDING_24_DP),
         horizontalArrangement = Arrangement.Center,
     ) {
         Icon(
-            modifier = Modifier.size(16.dp),
+            modifier = Modifier.size(PADDING_16_DP),
             painter = painterResource(id = R.drawable.ic_calendar),
             contentDescription = null,
             tint = Color.Gray,
         )
-        Spacer(modifier = Modifier.width(4.dp))
+        Spacer(modifier = Modifier.width(PADDING_4_DP))
         Text(
             text = yearRelease,
             color = Color.Black,
@@ -258,19 +288,19 @@ fun HorizontalThreeOptions(
             fontWeight = FontWeight(600),
             fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
         )
-        Spacer(modifier = Modifier.width(12.dp))
+        Spacer(modifier = Modifier.width(PADDING_12_DP))
         Icon(
             painter = painterResource(id = R.drawable.ic_vertical_line),
             contentDescription = null,
             tint = Color.Gray,
         )
-        Spacer(modifier = Modifier.width(12.dp))
+        Spacer(modifier = Modifier.width(PADDING_12_DP))
         Icon(
             painter = painterResource(id = R.drawable.ic_clock),
             contentDescription = null,
             tint = Color.Gray,
         )
-        Spacer(modifier = Modifier.width(4.dp))
+        Spacer(modifier = Modifier.width(PADDING_4_DP))
         Text(
             text = duration,
             color = Color.Black,
@@ -278,19 +308,19 @@ fun HorizontalThreeOptions(
             fontWeight = FontWeight(600),
             fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
         )
-        Spacer(modifier = Modifier.width(12.dp))
+        Spacer(modifier = Modifier.width(PADDING_12_DP))
         Icon(
             painter = painterResource(id = R.drawable.ic_vertical_line),
             contentDescription = null,
             tint = Color.Gray,
         )
-        Spacer(modifier = Modifier.width(12.dp))
+        Spacer(modifier = Modifier.width(PADDING_12_DP))
         Icon(
             painter = painterResource(id = R.drawable.ic_ticket),
             contentDescription = null,
             tint = Color.Gray,
         )
-        Spacer(modifier = Modifier.width(4.dp))
+        Spacer(modifier = Modifier.width(PADDING_4_DP))
         Text(
             text = genre,
             color = Color.Black,

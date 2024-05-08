@@ -26,6 +26,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.otarbakh.movieapplemondo.R
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_16_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_8_DP
 
 
 @Composable
@@ -38,7 +40,7 @@ fun CustomEmptyStateScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(PADDING_16_DP),
         horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -48,7 +50,7 @@ fun CustomEmptyStateScreen(
             )
         ) {
             Column(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(PADDING_16_DP),
                 horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
@@ -56,7 +58,7 @@ fun CustomEmptyStateScreen(
                 Text(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp),
+                        .padding(horizontal = PADDING_16_DP),
                     fontSize = 20.sp,
                     fontFamily = FontFamily(Font(R.font.googlesans_bold)),
                     fontWeight = FontWeight(700),
@@ -65,11 +67,11 @@ fun CustomEmptyStateScreen(
                     overflow = TextOverflow.Ellipsis,
                     text = title,
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(PADDING_8_DP))
                 Text(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp),
+                        .padding(horizontal = PADDING_16_DP),
                     fontSize = 12.sp,
                     textAlign = TextAlign.Center,
                     fontFamily = FontFamily(Font(R.font.googlesans_regular)),
@@ -78,42 +80,8 @@ fun CustomEmptyStateScreen(
                     overflow = TextOverflow.Ellipsis,
                     text = description,
                 )
-
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(PADDING_16_DP))
             }
-
         }
     }
-}
-
-
-@Preview
-@Composable
-fun EmptyMoviesScreenPrev() {
-    CustomEmptyStateScreen(
-
-        image = R.drawable.background_empty_state,
-        title = "No results found",
-        description = stringResource(id = R.string.empty_screen_description_no_results, "twilight")
-    )
-}
-
-@Preview
-@Composable
-fun NoInternetConnectionPrev() {
-    CustomEmptyStateScreen(
-        image = R.drawable.background_no_internet_connection,
-        title = "No internet connection",
-        description = stringResource(R.string.check_your_internet_connection_and_try_again)
-    )
-}
-
-@Preview
-@Composable
-fun FavoriteEmptyPrev() {
-    CustomEmptyStateScreen(
-        image = R.drawable.background_box_empty_state,
-        title = stringResource(R.string.you_don_t_have_favorites),
-        description = stringResource(R.string.add_movies_to_your_favorites_to_watch_here)
-    )
 }

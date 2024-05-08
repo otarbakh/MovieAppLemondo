@@ -22,6 +22,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.otarbakh.movieapplemondo.R
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_16_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_200_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_8_DP
 
 @Composable
 fun VerticalMovieItem(
@@ -34,7 +37,8 @@ fun VerticalMovieItem(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = PADDING_16_DP,
+                vertical = PADDING_8_DP),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = Color.Transparent
@@ -44,11 +48,11 @@ fun VerticalMovieItem(
             Card(
                 modifier = Modifier
                     .fillMaxWidth(),
-                shape = RoundedCornerShape(16.dp)
+                shape = RoundedCornerShape(PADDING_16_DP)
             ) {
                 AsyncImage(
                     modifier = Modifier
-                        .height(200.dp)
+                        .height(PADDING_200_DP)
                         .fillMaxSize(),
                     model = imageUrl,
                     contentDescription = stringResource(R.string.movie_image),
@@ -58,7 +62,7 @@ fun VerticalMovieItem(
 
             Column(
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(PADDING_16_DP)
                     .fillMaxWidth(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = CenterHorizontally
@@ -68,27 +72,13 @@ fun VerticalMovieItem(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(PADDING_8_DP))
                 Text(
                     text = release,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
-
-
             }
         }
-
     }
-}
-
-@Preview
-@Composable
-fun VerticalMovieItemPrev() {
-    VerticalMovieItem(
-        title = stringResource(R.string.fast_furious_x),
-        release = stringResource(R.string._2021_06_25),
-        imageUrl = stringResource(R.string.Image_URL),
-        onClick = {}
-    )
 }

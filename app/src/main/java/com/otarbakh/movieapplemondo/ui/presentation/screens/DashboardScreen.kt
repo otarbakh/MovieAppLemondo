@@ -29,6 +29,8 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.otarbakh.movieapplemondo.R
 import com.otarbakh.movieapplemondo.ui.presentation.navigation.HomeScreen
 import com.otarbakh.movieapplemondo.ui.presentation.navigation.homeNavGraph
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_0_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_80_DP
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -61,7 +63,7 @@ fun BottomBarCustom(navController: NavHostController) {
 
     if (bottomBarDestination) {
         NavigationBar(
-            modifier = Modifier.height(80.dp),
+            modifier = Modifier.height(PADDING_80_DP),
             containerColor = Color.Black.copy(alpha = 0.8f),
         ) {
             menuItems.forEach { screen ->
@@ -79,7 +81,10 @@ fun BottomBarCustom(navController: NavHostController) {
                             contentDescription = screen.title,
                         )
                     },
-                    selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+                    selected = currentDestination?.hierarchy?.any
+                    {
+                        it.route == screen.route
+                    } == true,
                     onClick = {
                         navController.navigate(screen.route) {
                             popUpTo(navController.graph.findStartDestination().id) {

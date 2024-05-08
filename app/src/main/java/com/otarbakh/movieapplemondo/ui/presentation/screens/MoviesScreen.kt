@@ -24,7 +24,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.otarbakh.movieapplemondo.R
 import com.otarbakh.movieapplemondo.core.resource.PopularMoviesResult
 import com.otarbakh.movieapplemondo.domain.MovieDomain
@@ -33,6 +32,11 @@ import com.otarbakh.movieapplemondo.ui.presentation.composables.CustomErrorScree
 import com.otarbakh.movieapplemondo.ui.presentation.composables.CustomNoInternetConnectionScreen
 import com.otarbakh.movieapplemondo.ui.presentation.composables.HorizontalMovieItem
 import com.otarbakh.movieapplemondo.ui.presentation.composables.LoadingScreen
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_10_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_16_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_180_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_40_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_80_DP
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,13 +49,13 @@ fun MoviesScreen(
 
         var searchQuery by rememberSaveable { mutableStateOf("") }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(PADDING_16_DP))
         SearchBar(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-                .height(70.dp)
-                .clip(RoundedCornerShape(40.dp)),
+                .padding(horizontal = PADDING_16_DP)
+                .height(PADDING_80_DP - PADDING_10_DP)
+                .clip(RoundedCornerShape(PADDING_40_DP)),
             query = searchQuery,
             onQueryChange = { queryChanged ->
                 searchQuery = queryChanged
@@ -64,12 +68,10 @@ fun MoviesScreen(
             },
             placeholder = { Text(stringResource(R.string.search_movie)) },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-
             ) {
-
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(PADDING_16_DP))
 
         HeaderMoviesScreen(
             searchQuery = searchQuery,
@@ -134,19 +136,19 @@ fun HeaderMoviesScreen(
 
         isErrorGeneral -> {
             CustomErrorScreenSomethingHappens(
-                modifier = Modifier.padding(bottom = 180.dp),
+                modifier = Modifier.padding(bottom = PADDING_180_DP),
             )
         }
 
         isInternetError -> {
             CustomNoInternetConnectionScreen(
-                modifier = Modifier.padding(bottom = 180.dp),
+                modifier = Modifier.padding(bottom = PADDING_180_DP),
             )
         }
 
         isEmpty -> {
             CustomEmptySearchScreen(
-                Modifier.padding(bottom = 180.dp),
+                Modifier.padding(bottom = PADDING_180_DP),
                 description = stringResource(
                     id = R.string.empty_screen_description_no_results,
                     searchQuery
@@ -168,7 +170,7 @@ fun HeaderMoviesScreen(
                             onClick = { onClickNavigateToDetails(it.id) })
 
                         if (it == popularMoviesList.last()) {
-                            Spacer(modifier = Modifier.height(80.dp))
+                            Spacer(modifier = Modifier.height(PADDING_80_DP))
                         }
                     }
                 })
