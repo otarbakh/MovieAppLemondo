@@ -35,7 +35,6 @@ fun RootNavigationGraph(navController: NavHostController = rememberNavController
         composable(route = NavGraph.DETAILS) {
             
         }
-
     }
 }
 
@@ -102,11 +101,7 @@ fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
             )
         }
     }
-
-
 }
-
-
 
 
 
