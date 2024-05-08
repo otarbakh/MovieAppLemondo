@@ -12,7 +12,7 @@ No results found for: %1$s</string>
     <string name="screen_empty_title_favorites">
 You don\'t have favorites</string>
     <string name="screen_empty_description_favorites">Add movies to your favorites to watch here</string>
-    <string name="description">During numerous more than impossible missions, Dom Toretto and his family have been able to outsmart, have more courage and go faster than any enemy that came their way. But now they will have to face the most lethal opponent they have ever known: a terrible danger that resurfaces from the past, who is driven by a bloody thirst for revenge and who is ready to tear the family apart and destroy forever everything Dom holds dear. it matters.</string>
+<!--    <string name="description">During numerous more than impossible missions, Dom Toretto and his family have been able to outsmart, have more courage and go faster than any enemy that came their way. But now they will have to face the most lethal opponent they have ever known: a terrible danger that resurfaces from the past, who is driven by a bloody thirst for revenge and who is ready to tear the family apart and destroy forever everything Dom holds dear. it matters.</string>-->
     <string name="DC">From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government, undertaking high-risk black ops missions in exchange for commuted prison sentences.</string>
     <string name="force_error_for_testing_purpose_only_basedatasource_kt">force error for testing purpose only -- BaseDataSource.kt</string>
     <string name="no_internet_connection">No internet connection</string>
@@ -29,4 +29,5 @@ You don\'t have favorites</string>
     <string name="action">Action</string>
     <string name="search_movie">Search Movie</string>
     <string name="details">Details</string>
+    <string name="description">Description</string>
 </resources>

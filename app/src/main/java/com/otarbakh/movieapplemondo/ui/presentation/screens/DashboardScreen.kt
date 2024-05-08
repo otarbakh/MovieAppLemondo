@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -13,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
@@ -30,6 +32,7 @@ import com.otarbakh.movieapplemondo.R
 import com.otarbakh.movieapplemondo.ui.presentation.navigation.HomeScreen
 import com.otarbakh.movieapplemondo.ui.presentation.navigation.homeNavGraph
 import com.otarbakh.movieapplemondo.ui.theme.PADDING_0_DP
+import com.otarbakh.movieapplemondo.ui.theme.PADDING_16_DP
 import com.otarbakh.movieapplemondo.ui.theme.PADDING_80_DP
 
 
@@ -56,15 +59,17 @@ fun BottomBarCustom(navController: NavHostController) {
         HomeScreen.MoviesHomeScreen,
         HomeScreen.FavoritesHomeScreen
     )
-
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
     val bottomBarDestination = menuItems.any { it.route == currentDestination?.route }
 
     if (bottomBarDestination) {
         NavigationBar(
-            modifier = Modifier.height(PADDING_80_DP),
-            containerColor = Color.Black.copy(alpha = 0.8f),
+            modifier = Modifier
+                .height(PADDING_80_DP)
+                .clip(RoundedCornerShape(topStart = PADDING_16_DP,
+                    topEnd = PADDING_16_DP)),
+            containerColor = Color.Gray,
         ) {
             menuItems.forEach { screen ->
                 val isSelectedMenu =
@@ -73,7 +78,8 @@ fun BottomBarCustom(navController: NavHostController) {
 
                 NavigationBarItem(
                     label = {
-                        Text(text = screen.title, color = Color.White.copy(alpha = backgroundAlpha))
+                        Text(text = screen.title,
+                            color = Color.White.copy(alpha = backgroundAlpha))
                     },
                     icon = {
                         Icon(

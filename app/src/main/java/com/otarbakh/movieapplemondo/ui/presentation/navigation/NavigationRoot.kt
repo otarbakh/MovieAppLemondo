@@ -25,14 +25,14 @@ import timber.log.Timber
 fun RootNavigationGraph(navController: NavHostController = rememberNavController()) {
     NavHost(
         navController = navController,
-        route = Graph.ROOT,
-        startDestination = Graph.HOME
+        route = NavGraph.ROOT,
+        startDestination = NavGraph.HOME
     ) {
-        composable(route = Graph.HOME) {
+        composable(route = NavGraph.HOME) {
             DashboardScreen()
         }
 
-        composable(route = Graph.DETAILS) {
+        composable(route = NavGraph.DETAILS) {
             
         }
 
@@ -44,7 +44,7 @@ fun RootNavigationGraph(navController: NavHostController = rememberNavController
 fun homeNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        route = Graph.HOME,
+        route = NavGraph.HOME,
         startDestination = HomeScreen.MoviesHomeScreen.route,
     ) {
 
@@ -55,7 +55,7 @@ fun homeNavGraph(navController: NavHostController) {
                 moviesList = moviesState,
                 onClickNavigateToDetails = { movieID ->
                     Timber.d("movieId saved: $movieID")
-                    navController.navigate(route = Graph.DETAILS + "/$movieID")
+                    navController.navigate(route = NavGraph.DETAILS + "/$movieID")
                 },
                 onQueryChange = { query ->
                     moviesViewModel.searchMovieOrEmpty(query)
@@ -69,7 +69,7 @@ fun homeNavGraph(navController: NavHostController) {
 
             FavoritesScreen(
                 onClickNavigateToDetails = { movieID ->
-                    navController.navigate(route = Graph.DETAILS + "/$movieID")
+                    navController.navigate(route = NavGraph.DETAILS + "/$movieID")
                 },
                 favoriteMovies = favoriteMovies
             )
@@ -81,7 +81,7 @@ fun homeNavGraph(navController: NavHostController) {
 
 fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
     navigation(
-        route = Graph.DETAILS + "/{movieId}",
+        route = NavGraph.DETAILS + "/{movieId}",
         startDestination = DetailsScreen.Information.route
     ) {
 
@@ -107,18 +107,8 @@ fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
 }
 
 
-sealed class DetailsScreen(val route: String) {
-    object Information : DetailsScreen("information_screen")
-}
-
-sealed class HomeScreen(val route: String, val icon: Int, val title: String) {
-    object MoviesHomeScreen : HomeScreen("movies_screen", R.drawable.ic_movie, "Movies")
-    object FavoritesHomeScreen : HomeScreen("favorites_screen", R.drawable.ic_love, "Favorites")
-}
 
 
-object Graph {
-    const val ROOT = "root_graph"
-    const val HOME = "home_graph"
-    const val DETAILS = "details_graph"
-}
+
+
+
