@@ -17,3 +17,7 @@
 - Gson: JSON serialization/deserialization library for parsing API responses.
 - Dagger Hilt: Dependency injection framework for Android.
 - Coil: Image loading library for displaying movie posters and images.
+
+
+https://github.com/otarbakh/MovieAppLemondo/assets/87203322/7bf843af-cb0c-443f-b606-8c8178e1f7e5
+
