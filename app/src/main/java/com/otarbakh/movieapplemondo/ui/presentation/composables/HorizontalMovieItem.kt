@@ -15,10 +15,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.otarbakh.movieapplemondo.R
@@ -65,7 +63,6 @@ fun HorizontalMovieItem(
                         contentDescription = null,
                     )
                 }
-
             }
 
             Column(
@@ -90,7 +87,6 @@ fun HorizontalMovieItem(
                 Text(text = (realeaseDate.toFormattedDateString()))
 
                 Spacer(modifier = Modifier.height(PADDING_8_DP))
-
             }
         }
     }

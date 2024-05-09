@@ -10,11 +10,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
-import com.otarbakh.movieapplemondo.R
+import com.otarbakh.movieapplemondo.ui.presentation.screens.DashboardScreen
 import com.otarbakh.movieapplemondo.ui.presentation.screens.DetailsMovieScreen
 import com.otarbakh.movieapplemondo.ui.presentation.screens.FavoritesScreen
 import com.otarbakh.movieapplemondo.ui.presentation.screens.MoviesScreen
-import com.otarbakh.movieapplemondo.ui.presentation.screens.DashboardScreen
 import com.otarbakh.movieapplemondo.ui.presentation.viewmodels.DetailsMovieViewModel
 import com.otarbakh.movieapplemondo.ui.presentation.viewmodels.FavoritesViewModel
 import com.otarbakh.movieapplemondo.ui.presentation.viewmodels.MoviesViewModel
@@ -33,14 +32,13 @@ fun RootNavigationGraph(navController: NavHostController = rememberNavController
         }
 
         composable(route = NavGraph.DETAILS) {
-            
         }
     }
 }
 
 
 @Composable
-fun homeNavGraph(navController: NavHostController) {
+fun HomeNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
         route = NavGraph.HOME,

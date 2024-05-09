@@ -29,7 +29,6 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.times
@@ -44,7 +43,6 @@ import com.otarbakh.movieapplemondo.ui.theme.PADDING_140_DP
 import com.otarbakh.movieapplemondo.ui.theme.PADDING_150_DP
 import com.otarbakh.movieapplemondo.ui.theme.PADDING_16_DP
 import com.otarbakh.movieapplemondo.ui.theme.PADDING_178_DP
-import com.otarbakh.movieapplemondo.ui.theme.PADDING_18_DP
 import com.otarbakh.movieapplemondo.ui.theme.PADDING_20_DP
 import com.otarbakh.movieapplemondo.ui.theme.PADDING_220_DP
 import com.otarbakh.movieapplemondo.ui.theme.PADDING_24_DP
@@ -136,7 +134,6 @@ fun DetailsMovieContent(
                         contentDescription = null,
                         contentScale = ContentScale.FillBounds,
                     )
-
                     androidx.compose.material3.Card(
                         modifier = Modifier
                             .offset(
@@ -258,7 +255,6 @@ fun DetailsMovieContent(
             fontFamily = FontFamily(Font(R.font.googlesans_regular, FontWeight.Normal)),
             fontWeight = FontWeight(600),
         )
-
     }
 }
 
