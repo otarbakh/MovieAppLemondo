@@ -3,7 +3,6 @@ package com.otarbakh.movieapplemondo.ui.presentation.screens
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -16,22 +15,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.airbnb.lottie.compose.LottieAnimation
-import com.airbnb.lottie.compose.LottieCompositionSpec
-import com.airbnb.lottie.compose.LottieConstants
-import com.airbnb.lottie.compose.rememberLottieComposition
-import com.otarbakh.movieapplemondo.R
 import com.otarbakh.movieapplemondo.ui.presentation.navigation.HomeScreen
-import com.otarbakh.movieapplemondo.ui.presentation.navigation.homeNavGraph
-import com.otarbakh.movieapplemondo.ui.theme.PADDING_0_DP
+import com.otarbakh.movieapplemondo.ui.presentation.navigation.HomeNavGraph
 import com.otarbakh.movieapplemondo.ui.theme.PADDING_16_DP
 import com.otarbakh.movieapplemondo.ui.theme.PADDING_80_DP
 
@@ -47,7 +38,7 @@ fun DashboardScreen() {
         }
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
-            homeNavGraph(navController = navController)
+            HomeNavGraph(navController = navController)
         }
     }
 }
