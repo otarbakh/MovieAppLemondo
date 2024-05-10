@@ -14,6 +14,7 @@
 - Kotlin Coroutines: For asynchronous programming.
 - Room Database for local data storage.
 - Retrofit
+- MVVM + Clean Architecture
 - Gson: JSON serialization/deserialization library for parsing API responses.
 - Dagger Hilt: Dependency injection framework for Android.
 - Coil: Image loading library for displaying movie posters and images.
